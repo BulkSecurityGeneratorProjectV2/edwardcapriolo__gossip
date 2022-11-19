@@ -30,6 +30,7 @@ import io.teknek.tunit.TUnit;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.nio.file.Files;
 import java.util.ArrayList;
 import java.util.UUID;
 import java.util.concurrent.Callable;
@@ -45,7 +46,7 @@ public class StartupSettingsTest {
 
   @Test
   public void testUsingSettingsFile() throws IOException, InterruptedException, JSONException {
-    File settingsFile = File.createTempFile("gossipTest",".json");
+    File settingsFile = Files.createTempFile("gossipTest", ".json").toFile();
     log.debug( "Using settings file: " + settingsFile.getAbsolutePath() );
     settingsFile.deleteOnExit();
     writeSettingsFile(settingsFile);
